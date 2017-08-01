@@ -192,7 +192,19 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
         present(alert, animated: true, completion: nil)
     }
     
-    
+    @IBAction func refresh() {
+        let selectedCal = calendars[pickerView.selectedRow(inComponent: 0)]
+        let query = GTLRCalendarQuery_EventsList.query(withCalendarId: selectedCal.identifier!)
+        query.maxResults = 20
+        query.timeMin = GTLRDateTime(date: Date())
+        query.singleEvents = true
+        query.orderBy = kGTLRCalendarOrderByStartTime
+        service.executeQuery(
+            query,
+            delegate: self,
+            didFinish: #selector(events(ticket:finishedWithObject:error:)))
+
+    }
     
     @IBAction func calButtonTapped() {
         bottomConstraint.isActive = false
