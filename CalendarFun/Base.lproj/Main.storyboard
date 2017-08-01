@@ -118,6 +118,9 @@
                                     <action selector="showAttendees" destination="BYZ-38-t0r" eventType="touchUpInside" id="LxY-Fr-QSj"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="OYb-Om-pME">
+                                <rect key="frame" x="124.5" y="124" width="125" height="125"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -130,6 +133,7 @@
                             <constraint firstItem="a9R-MC-kWj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HSC-MU-S5V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y9A-yJ-8Y3" secondAttribute="trailing" id="LxI-MQ-n5C"/>
                             <constraint firstItem="y9A-yJ-8Y3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pha-VY-NEJ"/>
+                            <constraint firstItem="2qU-pq-oxz" firstAttribute="top" secondItem="OYb-Om-pME" secondAttribute="bottom" constant="8" id="PwO-nh-Oz2"/>
                             <constraint firstAttribute="trailing" secondItem="GWq-tB-L2i" secondAttribute="trailing" id="Qfn-LV-2aH"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="OgK-Uc-RMi" secondAttribute="bottom" id="RHQ-5j-xuC"/>
                             <constraint firstItem="8Fz-7E-iaS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VqB-Lk-UAZ"/>
@@ -140,6 +144,7 @@
                             <constraint firstItem="ey4-n3-oo0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fGk-sf-73V"/>
                             <constraint firstItem="GWq-tB-L2i" firstAttribute="top" secondItem="8Fz-7E-iaS" secondAttribute="bottom" constant="8" id="hby-X6-xhR"/>
                             <constraint firstItem="2qU-pq-oxz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="irl-BT-5hd"/>
+                            <constraint firstItem="OYb-Om-pME" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tx0-I8-wmv"/>
                             <constraint firstItem="8Fz-7E-iaS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="uXc-Co-usW"/>
                             <constraint firstItem="a9R-MC-kWj" firstAttribute="top" secondItem="2qU-pq-oxz" secondAttribute="bottom" constant="8" id="zWJ-du-1Nj"/>
                         </constraints>
@@ -163,4 +168,7 @@
             <point key="canvasLocation" x="32.799999999999997" y="73.313343328335833"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="125" height="125"/>
+    </resources>
 </document>
