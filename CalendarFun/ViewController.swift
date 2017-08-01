@@ -9,6 +9,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
     // resetting the iOS simulator or uninstall the app.
     private let scopes = [kGTLRAuthScopeCalendarReadonly]
     @IBOutlet private var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var attendeesContstraint: NSLayoutConstraint!
     @IBOutlet private var pickerView: UIPickerView!
     @IBOutlet private var meetingNameLabel: UILabel!
     @IBOutlet private var timeLeftLabel: UILabel!
@@ -192,6 +193,13 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func showAttendees() {
+        self.attendeesContstraint.isActive = !self.attendeesContstraint.isActive
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
     @IBAction func refresh() {
         let selectedCal = calendars[pickerView.selectedRow(inComponent: 0)]
         let query = GTLRCalendarQuery_EventsList.query(withCalendarId: selectedCal.identifier!)
@@ -208,13 +216,16 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
     
     @IBAction func calButtonTapped() {
         bottomConstraint.isActive = false
-        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     @IBAction func calSelected() {
         bottomConstraint.isActive = true
-        self.view.layoutIfNeeded()
-        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
         let selectedCal = calendars[pickerView.selectedRow(inComponent: 0)]
         let query = GTLRCalendarQuery_EventsList.query(withCalendarId: selectedCal.identifier!)
         query.maxResults = 20

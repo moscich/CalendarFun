@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OgK-Uc-RMi">
-                                <rect key="frame" x="0.0" y="421" width="375" height="245.5"/>
+                                <rect key="frame" x="0.0" y="666.5" width="375" height="0.0"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AtendeeCell" id="Qyc-uO-9lg" customClass="AtendeeCell" customModule="CalendarFun" customModuleProvider="target">
@@ -111,6 +111,13 @@
                                     <action selector="refresh" destination="BYZ-38-t0r" eventType="touchUpInside" id="eAd-NH-9jF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oda-Oe-XTb">
+                                <rect key="frame" x="16" y="628.5" width="70" height="30"/>
+                                <state key="normal" title="Attendees"/>
+                                <connections>
+                                    <action selector="showAttendees" destination="BYZ-38-t0r" eventType="touchUpInside" id="LxY-Fr-QSj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -118,6 +125,8 @@
                             <constraint firstItem="ey4-n3-oo0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="7Io-1i-5k2"/>
                             <constraint firstItem="a9R-MC-kWj" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7bE-BL-ZX4"/>
                             <constraint firstItem="OgK-Uc-RMi" firstAttribute="top" secondItem="a9R-MC-kWj" secondAttribute="bottom" constant="40" id="9a9-Pv-78X"/>
+                            <constraint firstItem="OgK-Uc-RMi" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="bottom" priority="250" id="9mA-jc-YBC"/>
+                            <constraint firstItem="oda-Oe-XTb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="AsJ-Vc-i55"/>
                             <constraint firstItem="a9R-MC-kWj" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HSC-MU-S5V"/>
                             <constraint firstAttribute="trailingMargin" secondItem="y9A-yJ-8Y3" secondAttribute="trailing" id="LxI-MQ-n5C"/>
                             <constraint firstItem="y9A-yJ-8Y3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Pha-VY-NEJ"/>
@@ -126,6 +135,7 @@
                             <constraint firstItem="8Fz-7E-iaS" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="VqB-Lk-UAZ"/>
                             <constraint firstItem="OgK-Uc-RMi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Xs5-Cc-kcv"/>
                             <constraint firstAttribute="trailing" secondItem="OgK-Uc-RMi" secondAttribute="trailing" id="b5D-4T-QLt"/>
+                            <constraint firstItem="OgK-Uc-RMi" firstAttribute="top" secondItem="oda-Oe-XTb" secondAttribute="bottom" constant="8" id="cp2-av-LHw"/>
                             <constraint firstItem="GWq-tB-L2i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eng-FL-gcg"/>
                             <constraint firstItem="ey4-n3-oo0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fGk-sf-73V"/>
                             <constraint firstItem="GWq-tB-L2i" firstAttribute="top" secondItem="8Fz-7E-iaS" secondAttribute="bottom" constant="8" id="hby-X6-xhR"/>
@@ -133,8 +143,14 @@
                             <constraint firstItem="8Fz-7E-iaS" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="uXc-Co-usW"/>
                             <constraint firstItem="a9R-MC-kWj" firstAttribute="top" secondItem="2qU-pq-oxz" secondAttribute="bottom" constant="8" id="zWJ-du-1Nj"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9a9-Pv-78X"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
+                        <outlet property="attendeesContstraint" destination="9a9-Pv-78X" id="E4v-Tf-FQA"/>
                         <outlet property="bottomConstraint" destination="uXc-Co-usW" id="Fc0-a5-MA7"/>
                         <outlet property="meetingNameLabel" destination="2qU-pq-oxz" id="ddd-fV-a9n"/>
                         <outlet property="pickerView" destination="GWq-tB-L2i" id="pPJ-rA-kTb"/>
