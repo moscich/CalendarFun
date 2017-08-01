@@ -2,7 +2,7 @@ import GoogleAPIClientForREST
 import GoogleSignIn
 import UIKit
 
-class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITableViewDataSource {
     
     
     // If modifying these scopes, delete your previously saved credentials by
@@ -12,6 +12,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
     @IBOutlet private var pickerView: UIPickerView!
     @IBOutlet private var meetingNameLabel: UILabel!
     @IBOutlet private var timeLeftLabel: UILabel!
+    @IBOutlet private var tableView: UITableView!
     
     private let service = GTLRCalendarService()
     private var calendars: [GTLRCalendar_CalendarListEntry]!
@@ -19,6 +20,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
     let signInButton = GIDSignInButton()
     let output = UITextView()
     let formatter = DateComponentsFormatter()
+    var event: GTLRCalendar_Event!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,10 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
                     }
                     if Date().compare(startDate) == ComparisonResult.orderedDescending &&
                        Date().compare(endDate) == ComparisonResult.orderedAscending {
+                        if event != self.event {
+                            self.event = event
+                            self.tableView.reloadData() 
+                        }
                         
                         let timeLeft = event.end!.dateTime!.date.timeIntervalSince(Date())
                         self.formatter.unitsStyle = .positional
@@ -64,6 +70,10 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
                     }
                     if Date().compare(startDate) == ComparisonResult.orderedAscending &&
                         Date().compare(endDate) == ComparisonResult.orderedAscending {
+                        if event != self.event {
+                            self.event = event
+                            self.tableView.reloadData()
+                        }
                         let timeToNextMeeting = event.start!.dateTime!.date.timeIntervalSince(Date())
                         self.formatter.unitsStyle = .positional
                         self.formatter.allowedUnits = [.hour, .minute, .second ]
@@ -131,6 +141,7 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
             }
         }
         pickerView.reloadAllComponents()
+        tableView.reloadData()
         let query = GTLRCalendarQuery_EventsList.query(withCalendarId: response.items![0].identifier!)
         query.maxResults = 20
         query.timeMin = GTLRDateTime(date: Date())
@@ -223,5 +234,22 @@ class ViewController: UIViewController, GIDSignInDelegate, GIDSignInUIDelegate, 
             return calendar.summary
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let attendees = event?.attendees {
+            return attendees.count
+        } else {
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AtendeeCell") as! AtendeeCell
+        let user = event.attendees![indexPath.row].displayName != nil ? event.attendees![indexPath.row].displayName : event.attendees![indexPath.row].email
+        cell.userLabel.text = user
+        cell.statusLabel.text = event.attendees![indexPath.row].responseStatus
+
+        return cell
     }
 }

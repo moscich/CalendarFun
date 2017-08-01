@@ -15,6 +15,7 @@
 		796C03831F305D2E00CD9091 /* CalendarFunTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C03821F305D2E00CD9091 /* CalendarFunTests.swift */; };
 		796C038E1F305D2E00CD9091 /* CalendarFunUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C038D1F305D2E00CD9091 /* CalendarFunUITests.swift */; };
 		796C039C1F305FC700CD9091 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 796C039B1F305FC700CD9091 /* GoogleService-Info.plist */; };
+		796C039F1F30999300CD9091 /* AtendeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 796C039E1F30999300CD9091 /* AtendeeCell.swift */; };
 		F3259F502D8EB3CE720D087B /* Pods_CalendarFun.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52EEDF0424D0B3A058F2FD03 /* Pods_CalendarFun.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		796C038D1F305D2E00CD9091 /* CalendarFunUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarFunUITests.swift; sourceTree = "<group>"; };
 		796C038F1F305D2E00CD9091 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		796C039B1F305FC700CD9091 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		796C039E1F30999300CD9091 /* AtendeeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AtendeeCell.swift; sourceTree = "<group>"; };
 		7C5B4F43C32F19AB35F2BD66 /* Pods-CalendarFun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarFun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarFun/Pods-CalendarFun.debug.xcconfig"; sourceTree = "<group>"; };
 		E371DF29F01AA6A025447818 /* Pods-CalendarFun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarFun.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarFun/Pods-CalendarFun.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,7 @@
 				796C03741F305D2D00CD9091 /* Assets.xcassets */,
 				796C03761F305D2D00CD9091 /* LaunchScreen.storyboard */,
 				796C03791F305D2D00CD9091 /* Info.plist */,
+				796C039E1F30999300CD9091 /* AtendeeCell.swift */,
 			);
 			path = CalendarFun;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			files = (
 				796C03701F305D2D00CD9091 /* ViewController.swift in Sources */,
 				796C036E1F305D2D00CD9091 /* AppDelegate.swift in Sources */,
+				796C039F1F30999300CD9091 /* AtendeeCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
